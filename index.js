@@ -21,13 +21,13 @@ const omoiyariArt = 'https://coverartarchive.org/release/1d929dbc-85b3-4cf1-bbf7
 fetchArtwork(dreamArt);
 fetchData(dreamAlbum);
 
-// function fetchThumbnails(URL) {
-//   fetch(URL)
-//     .then((resp) => resp.json())
-//     .then((artwork) => {
-//       displayThumbnail(artwork)
-//     })
-// }
+function fetchThumbnails(URL) {
+  fetch(URL)
+    .then((resp) => resp.json())
+    .then((artwork) => {
+      displayThumbnail(artwork)
+    })
+}
 
 function fetchArtwork(URL) {
   fetch(URL)
