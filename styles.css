@@ -1,69 +1,72 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family:Arial, Helvetica, sans-serif;
-  }
-  
-  header {
-      padding: 25px;
-      text-align: center;
-  }
-  
-  nav {
-      text-align: center;
-      padding: 25px;
-  }
-  
-  li {
-      display: inline;
-      padding: 30px;
-  }
-  
-  main {
-      padding: 25px;
-      display: grid; 
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-      grid-gap: 10px;
-  }
-  
-  section {
-      /* border: 1px solid rgba(0, 0, 0, 0.1); */
-  }
-  
-  #album-list {
-  
-  }
-  
-  #album-detail-container {
-      display: table-cell;
-      vertical-align: middle;
-  }
-  
-  #album-artist {
-      text-align: center;
-  }
-  
-  #album-year {
-  
-  }
-  
-  #album-track-list {
-  
-  }
-  
-  #album-artwork {
-      margin: auto;
-      display: block;
-      /* max-width: 45%; */
-      /* height: auto; */
-      padding: 20px;
-  }
-  
-  #spotify-container {
-      
-  }
-  
-  #youtube-container {
-  
-  }
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  padding: 25px;
+  text-align: center;
+}
+
+nav {
+  /* text-align: center;
+  padding: 25px; */
+}
+
+li {
+  /* display: inline;
+  padding: 30px; */
+}
+
+main {
+  /* padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px; */
+}
+
+section {
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+.navItem {
+    margin: auto;
+    display: block;
+    max-width: 30%;
+    max-height: auto;
+}
+
+#album-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+#album-detail-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#album-artist {
+  text-align: center;
+}
+
+#album-year {
+}
+
+#album-track-list {
+}
+
+#album-artwork {
+  margin: auto;
+  display: block;
+  padding: 20px;
+}
+
+#spotify-container {
+}
+
+#youtube-container {
+}
