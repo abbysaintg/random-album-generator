@@ -55,8 +55,8 @@
   #album-artwork {
       margin: auto;
       display: block;
-      max-width: 45%;
-      height: auto;
+      /* max-width: 45%; */
+      /* height: auto; */
       padding: 20px;
   }
   
