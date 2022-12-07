@@ -66,6 +66,7 @@ function displayDetails(album) {
 // DISPLAY ALBUM ARTWORK IN DETAIL SECTION 
 function displayArtwork(artwork) {
   albumArt.src = artwork.images[0].thumbnails[500];
+  
 }
 
 // upon click, return and display data for clicked album (EL #1)
