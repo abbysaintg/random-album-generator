@@ -3,7 +3,6 @@ const albumArtist = document.querySelector('#album-artist')
 const albumTitle = document.querySelector('#album-title')
 const albumYear = document.querySelector('#album-year')
 const albumArt = document.querySelector('#album-artwork')
-
 const dreamAlbum = 'https://musicbrainz.org/ws/2/release/46a466c0-13f4-4f2b-b227-7df4885d9b56?inc=aliases%2Bartist-credits%2Blabels%2Bdiscids%2Brecordings&fmt=json';
 const dreamArt = 'https://coverartarchive.org/release/46a466c0-13f4-4f2b-b227-7df4885d9b56/';
 const misfitsAlbum = 'https://musicbrainz.org/ws/2/release-group/cb2d3303-c861-37fd-8421-e1455dea5605?inc=aliases%2Bartist-credits%2Breleases&fmt=json';
@@ -49,6 +48,9 @@ function fetchData(URL) {
 //   thumbnail.src = artwork.images[0].thumbnails[250];
 //   // thumbnail.setAttribute('class', '.navItem');
 //   albumNav.appendChild(thumbnail);
+//   thumbnail.addEventListener("click", (e) =>
+//   displayAlbum(album))
+//   console.log(thumbnail)
 // }
 
 // return data for first default album and display in detail area
