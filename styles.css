@@ -21,7 +21,7 @@ li {
 
 main {
    padding: 25px;
-  display: grid;
+  display: box;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-gap: 10px; 
@@ -32,15 +32,15 @@ section {
 }
 
 .navItem {
-    margin: auto;
+    margin: 20px;
     display: inline-block;
-    max-width: 60%;
+    max-width: 80%;
     max-height: auto;
 }
 
 #album-nav {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
 
@@ -62,7 +62,7 @@ section {
 #album-artwork {
   margin: auto;
   display: inline-block;
-  padding: 40px;
+  padding: 30px;
 }
 
 #spotify-container {
