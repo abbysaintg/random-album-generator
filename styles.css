@@ -10,7 +10,7 @@ header {
 }
 
 nav {
-   text-align: center;
+  text-align: center;
   padding: 25px; 
 }
 
@@ -20,8 +20,8 @@ li {
 }
 
 main {
-   padding: 25px;
-  display: box;
+  padding:50px;
+  display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-gap: 10px; 
@@ -34,19 +34,27 @@ section {
 .navItem {
     margin: 20px;
     display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     max-width: 80%;
     max-height: auto;
+    padding: 5px;
+    opacity: 0.8;
 }
 
 #album-nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 
 #album-detail-container {
   display: table-cell;
   vertical-align: middle;
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 #album-artist {
@@ -54,14 +62,25 @@ section {
 }
 
 #album-year {
+  text-align: center;
+  font-size: 15px;
+}
+
+#album-title {
+  text-align: center;
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 #album-track-list {
 }
 
 #album-artwork {
-  margin: auto;
-  display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  vertical-align: center;
   padding: 30px;
 }
 
