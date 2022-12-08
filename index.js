@@ -42,15 +42,16 @@ function displayThumbnail(artwork) {
   thumbnail.setAttribute('class', 'navItem');
   albumNav.appendChild(thumbnail);
   thumbnail.addEventListener("click", (e) => {
-    console.log(artwork.release)
-    // console.log(artwork.release + baseEndUrl)
-    // console.log(`${baseDataUrl}${IDS.omoiyari}${baseEndUrl}`)
-    // fetch(artwork.release + baseEndUrl, { mode: 'no-cors'})
-    //   .then((resp) => resp.json())
-    //   .then((album) => displayDetails(album))    
-    // fetch(artwork.release + baseEndUrl)
-    //   .then((resp) => resp.json())
-    //   .then((album) => displayArtwork(album))      
+   // console.log(artwork.release)
+   // console.log(artwork.release + baseEndUrl)
+   // console.log(`${baseDataUrl}${IDS.omoiyari}${baseEndUrl}`)
+    fetch(artwork.release + baseEndUrl, { mode: 'no-cors'})
+      .then((resp) => resp.json())
+      .then((album) => displayDetails(album))    
+    fetch(artwork.release + baseEndUrl)
+      .then((resp) => resp.json())
+      .then((album) => displayArtwork(album))    
+    console.log(artwork)  
   })
 }
 
