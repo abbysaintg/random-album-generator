@@ -3,12 +3,13 @@ const albumArtist = document.querySelector('#album-artist')
 const albumTitle = document.querySelector('#album-title')
 const albumYear = document.querySelector('#album-year')
 const albumArt = document.querySelector('#album-artwork')
+const spotify = document.querySelector('#spotify')
 
 const baseDataUrl = 'https://musicbrainz.org/ws/2/release/'
 const baseEndUrl = '?inc=aliases%2Bartist-credits%2Blabels%2Bdiscids%2Brecordings&fmt=json'
 const baseArtUrl = 'https://coverartarchive.org/release/'
 const IDS = {
-  dream: '46a466c0-13f4-4f2b-b227-7df4885d9b56', 
+  dream: '46a466c0-13f4-4f2b-b227-7df4885d9b56',
   misfits: '6f519587-e7d1-3d33-ab11-ed32df64c44d',
   alaska: '8844c5a6-3ae9-4c12-997e-40bbac5df6f7',
   clubExotica: 'fd532d70-03ef-4e11-aa5d-90053e2f59a0',
@@ -16,19 +17,18 @@ const IDS = {
   omoiyari: '1d929dbc-85b3-4cf1-bbf7-fd84f6f54a65'
 }
 
-let currentAlbum = {};
-
 // FETCH EACH ALBUM ARTWORK AND CALL FUNCTION 
 for (const key in IDS) {
   // console.log(`${key} -> ${IDS[key]}`)
   fetch(`${baseArtUrl}${IDS[key]}`)
     .then((resp) => resp.json())
-    .then((artwork) => displayThumbnail(artwork))}
+    .then((artwork) => displayThumbnail(artwork))
+}
 
 // FETCH FIRST ALBUM DATA AND CALL FUNCTION
 fetch(`${baseDataUrl}${IDS.dream}${baseEndUrl}`)
   .then((resp) => resp.json())
-  .then((album) => displayDetails(album))    
+  .then((album) => displayDetails(album))
 
 // FETCH FIRST ALBUM ARTWORK AND CALL FUNCTION 
 fetch(`${baseArtUrl}${IDS.dream}`)
@@ -42,38 +42,48 @@ function displayThumbnail(artwork) {
   thumbnail.setAttribute('class', 'navItem');
   albumNav.appendChild(thumbnail);
   thumbnail.addEventListener("click", (e) => {
-   // console.log(artwork.release)
-   // console.log(artwork.release + baseEndUrl)
-   // console.log(`${baseDataUrl}${IDS.omoiyari}${baseEndUrl}`)
-    fetch(artwork.release + baseEndUrl, { mode: 'no-cors'})
-      .then((resp) => resp.json())
-      .then((album) => displayDetails(album))    
-    fetch(artwork.release + baseEndUrl)
-      .then((resp) => resp.json())
-      .then((album) => displayArtwork(album))    
-    console.log(artwork)  
+    console.log(artwork.release)
+    // console.log(artwork.release + baseEndUrl)
+    // console.log(`${baseDataUrl}${IDS.omoiyari}${baseEndUrl}`)
+    // fetch(artwork.release + baseEndUrl, { mode: 'no-cors'})
+    //   .then((resp) => resp.json())
+    //   .then((album) => displayDetails(album))    
+    // fetch(artwork.release + baseEndUrl)
+    //   .then((resp) => resp.json())
+    //   .then((album) => displayArtwork(album))      
   })
 }
 
 // DISPLAY ALBUM DETAILS IN DETAIL SECTION 
 function displayDetails(album) {
-  currentAlbum = album
-  console.log(album)
   albumArtist.textContent = album["artist-credit"][0].name
   albumTitle.textContent = album.title
-  albumYear.textContent = album.date
+  let albumDate = album.date
+  year = albumDate.substr(0, 4)
+  albumYear.textContent = year
+  displaySpotify(album)
 }
 
 // DISPLAY ALBUM ARTWORK IN DETAIL SECTION 
 function displayArtwork(artwork) {
-  albumArt.src = artwork.images[0].thumbnails[500];
-  
+  albumArt.src = artwork.images[0].thumbnails.large;
 }
 
-// upon click, return and display data for clicked album (EL #1)
-
-// return album artwork for clicked album and display in detail area
-
-// upon mouseover, album title? changes color (EL #2)
-
-// keydown escape button, return to default (EL #3)
+// DISPLAY SPOTIFY EMBED 
+function displaySpotify(album) {
+  if (album.id === IDS.dream) {
+    spotify.src = 'https://open.spotify.com/embed/album/5ogYKSRRlVAgMzv09HFeIn?utm_source=generator&theme=0'
+  } else if (album.id === IDS.omoiyari) {
+    spotify.src = 'https://open.spotify.com/embed/album/7efrHmcFVWTB733vfDt9ey?utm_source=generator&theme=0'
+  } else if (album.id === IDS.misfits) {
+    spotify.src = 'https://open.spotify.com/embed/album/636aBJi9ifGPSPacQ0fYCF?utm_source=generator&theme=0'
+  } else if (album.id === IDS.alaska) {
+    spotify.src = 'https://open.spotify.com/embed/album/4QZBTJiAHBr2PsWQy2Wg2a?utm_source=generator&theme=0'
+  } else if (album.id === IDS.clubExotica) {
+    spotify.src = 'https://open.spotify.com/embed/album/28tDo7nBg0KJWg2HleLKor?utm_source=generator&theme=0'
+  } else if (album.id === IDS.wetTennis) {
+    spotify.src = 'https://open.spotify.com/embed/album/1u54eF07irCSSssyDG67R2?utm_source=generator&theme=0'
+  } else {
+    console.log("no spotify album available")
+  }
+}
