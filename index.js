@@ -43,9 +43,15 @@ function fetchFirstAlbum() {
 function displayThumbnail(artwork) {
   let thumbnail = document.createElement('img')
   thumbnail.src = artwork.images[0].thumbnails.small;
-  thumbnail.setAttribute('class', 'navItem');
+  thumbnail.setAttribute('class', 'mouseOut');
   albumNav.appendChild(thumbnail);
   thumbnail.addEventListener("click", () => getUrlFromArchive(artwork))
+  thumbnail.addEventListener("mouseover", () => {
+    thumbnail.setAttribute("class", "mouseOver")
+  })
+  thumbnail.addEventListener("mouseout", () => {
+    thumbnail.setAttribute("class", "mouseOut")
+  })
 }
 
 // CREATE API LINK FROM ALBUM ARTWORK 
@@ -55,24 +61,6 @@ function getUrlFromArchive(artwork) {
   fetch(`${baseDataUrl}${newID}${baseEndUrl}`)
     .then((resp) => resp.json())
     .then((album) => displayDetails(album))
-}
-
-// DISPLAY ALBUM INFO & ARTWORK IN DETAIL SECTION 
-function displayDetails(album) {
-  albumArtist.textContent = album["artist-credit"][0].name
-  albumTitle.textContent = album.title
-  if (album.date) {
-    albumYear.textContent = album.date.substr(0, 4)
-  } else {
-    albumYear.textContent = ""
-  }
-  fetch(`${baseArtUrl}${album.id}`)
-    .then((resp) => resp.json())
-    .then((artwork) => {
-      albumArt.src = artwork.images[0].thumbnails.large;
-    })
-  spotify.src = ''
-  displaySpotify(album)
 }
 
 // RETURN RANDOM ALBUM FROM SELECTED GENRE
@@ -111,6 +99,24 @@ function getRandomAlbum() {
         .then((resp) => resp.json())
         .then((artwork) => getUrlFromArchive(artwork))
     })
+}
+
+// DISPLAY ALBUM INFO & ARTWORK IN DETAIL SECTION 
+function displayDetails(album) {
+  albumArtist.textContent = album["artist-credit"][0].name
+  albumTitle.textContent = album.title
+  if (album.date) {
+    albumYear.textContent = album.date.substr(0, 4)
+  } else {
+    albumYear.textContent = ""
+  }
+  fetch(`${baseArtUrl}${album.id}`)
+    .then((resp) => resp.json())
+    .then((artwork) => {
+      albumArt.src = artwork.images[0].thumbnails.large;
+    })
+  spotify.src = ''
+  displaySpotify(album)
 }
 
 // DISPLAY SPOTIFY EMBED 
