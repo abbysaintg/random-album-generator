@@ -17,8 +17,8 @@ const IDS = {
   alaska: "8844c5a6-3ae9-4c12-997e-40bbac5df6f7",
   clubExotica: "fd532d70-03ef-4e11-aa5d-90053e2f59a0",
   wetTennis: "f0e42ca8-108d-43c7-8fa2-51aa92b99aca",
-  omoiyari: "1d929dbc-85b3-4cf1-bbf7-fd84f6f54a65",
-};
+  omoiyari: "1d929dbc-85b3-4cf1-bbf7-fd84f6f54a65"
+}
 
 fetchThumbnails();
 fetchFirstAlbum();
@@ -28,7 +28,7 @@ function fetchThumbnails() {
   for (const key in IDS) {
     fetch(`${baseArtUrl}${IDS[key]}`)
       .then((resp) => resp.json())
-      .then((artwork) => displayThumbnail(artwork));
+      .then((artwork) => displayThumbnail(artwork))
   }
 }
 
@@ -36,14 +36,14 @@ function fetchThumbnails() {
 function fetchFirstAlbum() {
   fetch(`${baseDataUrl}${IDS.dream}${baseEndUrl}`)
     .then((resp) => resp.json())
-    .then((album) => displayDetails(album));
+    .then((album) => displayDetails(album))
 }
 
 // DISPLAY ALBUM ARTWORK IN NAV SECTION
 function displayThumbnail(artwork) {
-  let thumbnail = document.createElement("img");
-  thumbnail.src = artwork.images[0].thumbnails.small;
-  thumbnail.setAttribute('class', 'mouseOut');
+  let thumbnail = document.createElement("img")
+  thumbnail.src = artwork.images[0].thumbnails.small
+  thumbnail.setAttribute('class', 'mouseOut')
   albumNav.appendChild(thumbnail);
   thumbnail.addEventListener("click", () => getUrlFromArchive(artwork))
   thumbnail.addEventListener("mouseover", () => {
