@@ -9,48 +9,58 @@
   </head>
 
   <body>
-    <header>
-      <h1>Project Using MusicBrainz API</h1>
+    <!-- <header>
+      <h1>MUSICBRAINZ API PROJECT</h1>
       <hr />
-    </header>
+    </header> -->
 
-    <div id="album-nav"></div>
-
+    <nav>
+      <h2><em>CHOOSE ONE OF OUR FAVORITE ALBUMS:</em></h2>
+      <div id="album-nav"></div>
+    </nav>
     <main>
       <div id="generator-container">
-        <h4>Random Album Generator</h4>
-        <select id="dropdown">
-          <option value="pop" selected>Pop</option>
-          <option value="country">Country</option>
-          <option value="rock">Rock</option>
-          <option value="hip-hop-rap">Hip-Hop & Rap</option>
-          <option value="rhythm-blues">Rhythm & Blues</option>
-          <option value="folk">Folk</option>
-          <option value="jazz">Jazz</option>
-        </select>
-        <button id="submit-button" type="button">Submit</button>
+        <h2><em>OR GET A RANDOM ALBUM:</em></h2>
+        <div id="dropdown-and-button-container">
+          <select id="dropdown">
+            <option value="pop" selected>POP</option>
+            <option value="country">COUNTRY</option>
+            <option value="rock">ROCK</option>
+            <option value="hip-hop-rap">HIP HOP & RAP</option>
+            <option value="rhythm-blues">RHYTHM & BLUES</option>
+            <option value="folk">FOLK</option>
+            <option value="jazz">JAZZ</option>
+          </select>
+          <button id="submit-button" type="button">GENERATE</button>
+        </div>
       </div>
-      <div id="album-detail-container">
-        <h2 id="album-artist"></h2>
-        <h3 id="album-title"></h3>
-        <h3 id="album-year"></h3>
-        <img id="album-artwork" src="" alt="album artwork" />
-      </div>
-      <div id="spotify-container">
-        <iframe
-          id="spotify"
-          style="border-radius: 12px"
-          src=""
-          width="100%"
-          height="380"
-          frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
+
+      <div id="album-and-spotify-container">
+        <div id="album-detail-container">
+          <div id="album-text">
+            <h2 id="album-artist"></h2>
+            <h2 id="album-title"></h2>
+            <h2 id="album-year"></h2>
+          </div>
+          <img id="album-artwork" src="" alt="album artwork" />
+        </div>
+        <div id="spotify-container">
+          <div>
+            <h4 id="spotify-heading">PLAY THE ALBUM FROM SPOTIFY</h4>
+          </div>
+          <iframe
+            id="spotify"
+            style="border-radius: 12px"
+            src=""
+            width="100%"
+            height="90%"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </main>
-
-    <footer></footer>
 
     <script defer type="text/javascript" src="index.js"></script>
   </body>
